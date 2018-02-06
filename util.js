@@ -1,4 +1,4 @@
-function isVow(letter) {
+function isVowel(letter) {
   switch (letter.toLowerCase()) {
     case 'a': case 'á': case 'ã': case 'â':
     case 'e': case 'é': case 'ê':
@@ -19,7 +19,7 @@ function setCharAt(str, index, chr) {
 function convertMtoB(text) {
   let modified = text;
   for (let i = 0; i < text.length - 1; i += 1) {
-    if (text.charAt(i).toLowerCase() === 'm' && isVow(text.charAt(i + 1))) {
+    if (text.charAt(i).toLowerCase() === 'm' && isVowel(text.charAt(i + 1))) {
       if (text.charAt(i) === text.charAt(i).toLowerCase()) {
         modified = setCharAt(modified, i, 'b');
       } else {
