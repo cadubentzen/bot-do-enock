@@ -5,22 +5,28 @@ const { convertMtoB } = require('./util');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-bot.start(ctx => ctx.reply('Welcobe!'));
+bot.start(({ reply }) => reply('Welcobe!'));
 
-bot.on('message', (ctx) => {
-  if (!('text' in ctx.message)) {
+bot.on('message', ({ message, from, reply }) => {
+  if (!('text' in message)) {
     return;
   }
-  if (ctx.message.text.includes('?')) {
-    ctx.reply(
+  const { text, message_id } = message; // eslint-disable-line
+  if (text.includes('?')) {
+    reply(
       Math.random() > 0.5 ? 'Oh yes!' : 'Oh no!',
-      Extra.inReplyTo(ctx.message.message_id) // eslint-disable-line
+      Extra.inReplyTo(message_id) // eslint-disable-line
     );
-  } else if (ctx.from.id === parseInt(process.env.ENOCK_ID, 10)
-             && ctx.message.text.includes('m')) {
-    const converted = convertMtoB(ctx.message.text);
-    if (converted !== ctx.message.text) {
-      ctx.reply(converted);
+  } else if (text.toLowerCase().includes('normal')) {
+    reply(
+      'Aí vc é o normalzão?',
+      Extra.inReplyTo(message_id) // eslint-disable-line
+    );
+  } else if (from.id === parseInt(process.env.ENOCK_ID, 10)
+             && text.includes('m')) {
+    const converted = convertMtoB(text);
+    if (converted !== text) {
+      reply(converted);
     }
   }
 });
