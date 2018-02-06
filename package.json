@@ -1,0 +1,26 @@
+{
+  "name": "enock-telegram-bot",
+  "version": "0.0.1",
+  "description": "A telegram bot to mimic Enock's way of speaking",
+  "main": "index.js",
+  "dependencies": {
+    "telegraf": "^3.17.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cadubentzen/enock-telegram-bot.git"
+  },
+  "keywords": [
+    "telegram"
+  ],
+  "author": "Cadu Bentzen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cadubentzen/enock-telegram-bot/issues"
+  },
+  "homepage": "https://github.com/cadubentzen/enock-telegram-bot#readme"
+}
