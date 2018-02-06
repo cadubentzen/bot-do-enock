@@ -19,7 +19,7 @@ bot.on('message', ({ message, from, reply }) => {
     );
   } else if (text.toLowerCase().includes('normal')) {
     reply(
-      'Aí vc é o normalzão?',
+      'Aí vc é o norbalzão?',
       Extra.inReplyTo(message_id) // eslint-disable-line
     );
   } else if (from.id === parseInt(process.env.ENOCK_ID, 10)
