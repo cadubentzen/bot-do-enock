@@ -19,21 +19,22 @@ bot.on('message', ({
       { source: './img/nemlerei.jpg' },
       Extra.inReplyTo(message_id) // eslint-disable-line
     );
-  } else if (text.includes('?')) {
-    reply(
-      Math.random() > 0.5 ? 'Oh yes!' : 'Oh no!',
-      Extra.inReplyTo(message_id) // eslint-disable-line
-    );
   } else if (text.toLowerCase().includes('normal')) {
     reply(
       'Aí vc é o norbalzão?',
       Extra.inReplyTo(message_id) // eslint-disable-line
     );
-  } else if (from.id === parseInt(process.env.ENOCK_ID, 10)
-             && text.includes('m')) {
-    const converted = convertMtoB(text);
-    if (converted !== text) {
-      reply(converted);
+  } else if (from.id === parseInt(process.env.ENOCK_ID, 10)) {
+    if (text.includes('?')) {
+      reply(
+        Math.random() > 0.5 ? 'Oh yes!' : 'Oh no!',
+        Extra.inReplyTo(message_id) // eslint-disable-line
+      );
+    } else if (text.includes('m')) {
+      const converted = convertMtoB(text);
+      if (converted !== text) {
+        reply(converted);
+      }
     }
   }
 });
